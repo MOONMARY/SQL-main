@@ -3,7 +3,8 @@ FROM mysql:latest
 
 # 초기화 SQL
 # /docker-entrypoint-initdb.d
-COPY backup.sql /docker-entrypoint-initdb.d/
+COPY 01-backup.sql /docker-entrypoint-initdb.d/
+COPY 02-grant.sql /docker-entrypoint-initdb.d/
 
 # 환경 변수
 ENV MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
